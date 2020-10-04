@@ -1,0 +1,56 @@
+import com.company.Main;
+
+import java.util.Scanner;
+import java.util.Arrays;
+
+public class NCR1 {
+    static int pow(int a,int b){
+        int result=a;
+        if(b==0){
+            return 1;
+        }
+        for (int i = 1; i <b ; i++) {
+            result=result*a;
+        }
+        return result;
+    }
+    static int length(String str){
+        str=str+'\0';
+        int count=0;
+        for (int i = 0; str.charAt(i)!=0; i++) {
+            count++;
+        }
+        return count;
+    }
+    static int ValueOfAlphabet(char a){
+        char[] arr={'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'};
+        int resultt=0;
+        for (int i = 0; i <26 ; i++) {
+            if(a==arr[i]){
+                resultt=i+1;
+                break;
+            }
+        }
+        return resultt;
+    }
+    public static void main(String[] arg){
+        Scanner sc=new Scanner(System.in);
+        int part=3; //sc.nextInt();
+        String[] array={"AZ","BA","P"};
+        int resultarray[]=new int[part];
+        for (int i = 0; i < part; i++) {
+            int strlen=NCR1.length(array[i])-1;
+            int sum=0;
+            for (int j = 0; j <NCR1.length(array[i]) ; j++) {
+                sum +=pow(26, strlen) * ValueOfAlphabet(array[i].charAt(j));
+                strlen--;
+            }
+            resultarray[i]=sum;
+        }
+        Arrays.sort(resultarray);
+        for (int i = part-1; i >=0 ; i--) {
+            System.out.print(resultarray[i]+"");
+        }
+
+    }
+}
