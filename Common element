@@ -1,0 +1,47 @@
+import java.io.*;
+import java.util.*;
+public class A
+{
+    public static void main(String[] arg){
+        // common element in all..
+        // arrays should be sorted
+        int[] A={1,2,5,7,8,11,19,21,22,28};
+        int[] B={2,3,6,7,15,19,21,28,29,30};
+        int[] C={2,7,8,15,19,21,22,23,28,30};
+        int i=0,j=0,k=0;
+        int n=A.length;
+        while(i<n && j<n && k<n){
+            if(A[i]==B[j] && B[j]==C[k]){
+                System.out.println(A[i]);
+                i++;
+                j++;
+                k++;
+            }
+            else if(A[i]<B[j] && B[j]==C[k]){
+                i++;
+            }
+            else if(A[i]>B[j] && A[i]==C[k]){
+                j++;
+            }
+            else if(A[i]==B[j] && A[i]>C[k]){
+                k++;
+            }
+            else if(A[i]>B[j] && A[i]>C[k]){
+                j++;
+                k++;
+            }
+            else if(A[i]<B[j] && B[j]>C[k]){
+                i++;
+                k++;
+            }
+            else if(A[i]<C[k] && B[j]<C[k]){
+                i++;
+                j++;
+            }
+
+        }
+//        for (int i : arr ) {
+//            System.out.print(i+ " ");
+//        }
+    }
+}
