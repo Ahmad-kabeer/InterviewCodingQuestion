@@ -1,0 +1,39 @@
+import java.io.*;
+import java.util.*;
+public class A
+{
+    static int len(int a){             //int value length
+        int count=0;
+        while (a>0){
+            a=a/10;
+            count++;
+        }
+        return count;
+    }
+    static int len(String str){          //String value length
+        int count=0;
+//        char b[]=str.toCharArray();
+//        for (char i:b ) {
+//            count++;
+//        }
+//        return count;
+
+//      OR
+        str=str+'\0';
+        for (int i = 0; str.charAt(i)!=0; i++) {
+            count++;
+        }
+        return count;
+    }
+    static int len(int[] a){             //int value length
+        int count=0;
+        for (int i:a ) {
+            count++;
+        }
+        return count;
+    }
+    public static void main(String[] arg){
+        int[] aaa={1,2,3,4,5,6};
+        System.out.println(A.len(aaa));
+    }
+}
